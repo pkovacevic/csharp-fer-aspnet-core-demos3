@@ -1,0 +1,26 @@
+﻿@model System.Collections.Generic.List<TodoApp.Models.TodoItem>
+
+
+<h1>Active Todos</h1>
+<div>
+    <a asp-action="Add">Add new todo <span class="glyphicon glyphicon-plus-sign"></span></a> &nbsp;
+    <a asp-action="Completed">See completed <span class="glyphicon glyphicon-briefcase"></span></a>
+</div>
+<hr/>
+
+@foreach (var todo in Model)
+{
+    <div>
+        <b>@todo.Text</b>
+    </div>
+
+    <div>
+        @todo.DateCreated.ToString("D")
+    </div>
+    <div>
+        <a asp-action="MarkAsCompleted" asp-route-todoId="@todo.Id">Mark as completed <span class="glyphicon glyphicon-check"></span></a>
+    </div>
+    <br/>
+
+
+}

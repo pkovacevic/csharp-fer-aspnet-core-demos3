@@ -1,0 +1,10 @@
+﻿@model TodoApp.Models.TodoViewModels.AddTodoViewModel
+
+<h1>Add new Todo</h1>
+<form asp-action="Add" method="post">
+    Tekstić: <input asp-for="Text"/><br/>
+    <input type="submit" class="btn btn-info" value="Add"/>
+    <span asp-validation-for="Text"></span>
+</form>
+
+<a asp-action="Index">Back</a>

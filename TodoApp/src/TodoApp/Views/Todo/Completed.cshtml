@@ -1,0 +1,23 @@
+﻿@model System.Collections.Generic.List<TodoApp.Models.TodoItem>
+
+<h1>Completed todos</h1>
+
+@if (!Model.Any())
+{
+    <h4>Nothing completed :(</h4>
+}
+
+@foreach (var todo in Model)
+{
+    <div>
+        <b>@todo.Text</b>
+    </div>
+
+    <div>
+        Date completed: @todo.DateCompleted.GetValueOrDefault().ToString("D") <br/>
+        Date created: @todo.DateCreated.ToString("D")
+    </div>
+    <br/>
+}
+
+<a asp-action="Index">Back</a>
