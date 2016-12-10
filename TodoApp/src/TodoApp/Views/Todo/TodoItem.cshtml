@@ -1,0 +1,16 @@
+﻿@model TodoItem
+
+<div>
+    <h4>@Model.Text</h4>
+    <div>@Model.DateCreated.ToString("D")</div>
+    @if (Model.IsCompleted)
+    {
+        <div>Date completed: @Model.DateCompleted.GetValueOrDefault().ToString("D")</div>
+    }
+    else
+    {
+        <div>
+            <a asp-action="MarkAsCompleted" asp-route-todoId="@Model.Id">Mark as completed <span class="glyphicon glyphicon-check"></span></a>
+        </div>
+    }
+</div>

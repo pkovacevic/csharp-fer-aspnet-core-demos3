@@ -9,15 +9,7 @@
 
 @foreach (var todo in Model)
 {
-    <div>
-        <b>@todo.Text</b>
-    </div>
-
-    <div>
-        Date completed: @todo.DateCompleted.GetValueOrDefault().ToString("D") <br/>
-        Date created: @todo.DateCreated.ToString("D")
-    </div>
-    <br/>
+    @Html.Partial("TodoItem", todo)
 }
 
 <a asp-action="Index">Back</a>

@@ -10,17 +10,5 @@
 
 @foreach (var todo in Model)
 {
-    <div>
-        <b>@todo.Text</b>
-    </div>
-
-    <div>
-        @todo.DateCreated.ToString("D")
-    </div>
-    <div>
-        <a asp-action="MarkAsCompleted" asp-route-todoId="@todo.Id">Mark as completed <span class="glyphicon glyphicon-check"></span></a>
-    </div>
-    <br/>
-
-
+    @Html.Partial("TodoItem", todo)
 }
