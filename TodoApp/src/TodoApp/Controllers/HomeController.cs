@@ -20,7 +20,6 @@ namespace TodoApp.Controllers
 
         public IActionResult Index()
         {
-            var value = HttpContext.Session.GetString("SomeKey");
             return View();
         }
 
@@ -45,8 +44,26 @@ namespace TodoApp.Controllers
 
         public IActionResult SessionTest()
         {
-            HttpContext.Session.SetString("SomeKey", "1234");
-            return View();
+
+            const string counterKey = "MyCounter";
+
+            // Get counter from session 
+            var counter = HttpContext.Session.GetInt32(counterKey);
+
+            // Initialize or increment counter
+            if (counter == null)
+            {
+                counter = 0;
+            }
+            else
+            {
+                counter++;
+            }
+
+            // Save incremented value back to session
+            HttpContext.Session.SetInt32(counterKey, counter.Value);
+
+            return View(counter);
         }
 
         public async Task<IActionResult> CacheTest()
