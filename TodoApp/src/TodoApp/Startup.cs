@@ -52,6 +52,10 @@ namespace TodoApp
             services.AddTransient<ITodoRepository, TodoSqlRepository>();
             services.AddScoped(s => new TodoDbContext(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+
             services.AddMvc(options =>
             {
                 options.SslPort = 44397;
@@ -93,7 +97,7 @@ namespace TodoApp
                 AutomaticChallenge = true
             });
 
-            // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

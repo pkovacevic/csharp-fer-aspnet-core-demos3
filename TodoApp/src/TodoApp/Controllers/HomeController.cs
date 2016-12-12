@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TodoApp.Controllers
@@ -10,6 +11,7 @@ namespace TodoApp.Controllers
     {
         public IActionResult Index()
         {
+            var value = HttpContext.Session.GetString("SomeKey");
             return View();
         }
 
@@ -29,6 +31,12 @@ namespace TodoApp.Controllers
 
         public IActionResult Error()
         {
+            return View();
+        }
+
+        public IActionResult SessionTest()
+        {
+            HttpContext.Session.SetString("SomeKey", "1234");
             return View();
         }
     }
