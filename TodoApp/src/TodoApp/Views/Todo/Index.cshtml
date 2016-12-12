@@ -12,3 +12,5 @@
 {
     @Html.Partial("TodoItem", todo)
 }
+
+@await Component.InvokeAsync("LastTodosComponent", new {n = 10})

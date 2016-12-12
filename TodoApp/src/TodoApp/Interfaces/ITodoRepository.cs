@@ -15,5 +15,7 @@ namespace TodoApp.Interfaces
         List<TodoItem> GetActive(Guid userId);
         List<TodoItem> GetCompleted(Guid userId);
         List<TodoItem> GetFiltered(Func<TodoItem, bool> filterFunction, Guid userId);
+        List<TodoItem> GetLastTodos(int n);
+
     }
 }

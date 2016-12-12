@@ -95,5 +95,10 @@ namespace TodoApp
         {
             return _context.TodoItems.Where(t => t.UserId == userId).Where(filterFunction).ToList();
         }
+
+        public List<TodoItem> GetLastTodos(int n)
+        {
+            return _context.TodoItems.OrderBy(t => t.DateCreated).Take(n).ToList();
+        }
     }
 }

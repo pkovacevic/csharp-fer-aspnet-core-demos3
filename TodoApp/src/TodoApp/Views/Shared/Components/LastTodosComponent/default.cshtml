@@ -1,0 +1,6 @@
+﻿@model List<TodoItem>
+<hr/>
+@foreach (var todo in Model)
+{
+    <div>@todo.DateCreated.ToString("D") @todo.Text</div>
+}
