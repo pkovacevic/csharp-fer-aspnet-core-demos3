@@ -52,7 +52,7 @@ namespace TodoApp
             services.AddTransient<ITodoRepository, TodoSqlRepository>();
             services.AddScoped(s => new TodoDbContext(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDistributedMemoryCache();
+            services.AddMemoryCache();
             services.AddSession();
 
 
